@@ -1,6 +1,6 @@
 # Phase 2 – Customer Sales Analysis using PySpark
 
-## 📘 What I Learned
+## � What I Learned
 
 * Joining multiple DataFrames using `join()`
 * Performing aggregations:
