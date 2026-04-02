@@ -4,26 +4,26 @@ from pyspark.ml.feature import Bucketizer
 from pyspark.sql.window import Window
 from pyspark.sql.functions import percent_rank
 
-# -----------------------------------
+
 # 1. Initialize Spark
-# -----------------------------------
+
 spark = SparkSession.builder.appName("Phase4A_Segmentation").getOrCreate()
 
-# -----------------------------------
+
 # 2. Load Data
-# -----------------------------------
+
 customers = spark.read.option("header", True).option("inferSchema", True).csv("/samples/customers.csv")
 sales = spark.read.option("header", True).option("inferSchema", True).csv("/samples/sales.csv")
 
-# -----------------------------------
+
 # 3. Basic Cleaning
-# -----------------------------------
+
 customers = customers.dropna(subset=["customer_id"]).dropDuplicates(["customer_id"])
 sales = sales.dropna(subset=["customer_id"]).dropDuplicates(["sale_id"]).filter(F.col("total_amount") > 0)
 
-# -----------------------------------
+
 # 4. Create total_spend per customer
-# -----------------------------------
+
 df = sales.groupBy("customer_id") \
     .agg(F.sum("total_amount").alias("total_spend")) \
     .join(customers, "customer_id")
