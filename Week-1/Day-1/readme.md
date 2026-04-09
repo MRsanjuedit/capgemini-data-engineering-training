@@ -1,77 +1,139 @@
-Phase 1 – Databricks Interface & Basic Data Cleaning
----
-🔹 Objective
+# **Phase 1 – Databricks Interface & Basic Data Cleaning (Week 1 - Day 1)**
 
-In this phase, the goal is to understand the Databricks environment and perform basic data cleaning operations on a CSV dataset using PySpark.
+## **🔹 Objective**
+
+Gain foundational understanding of the **Databricks environment** and perform basic data cleaning operations using **PySpark** on a CSV dataset.
 
 This phase focuses on:
 
-Learning the Databricks interface
-Working with notebooks and clusters
-Performing initial data cleaning tasks
+* Understanding the Databricks workspace and interface
+* Working with clusters and notebooks
+* Performing initial data cleaning operations
 
-🔹 Problem Summary
+---
 
-We were given a small CSV dataset containing inconsistent and dirty data.
+## **🔹 Problem Statement**
 
-The task was to:
+A sample CSV dataset containing inconsistent and unclean data was provided.
 
-Upload and read the dataset in Databricks
-Explore the data
-Clean the dataset by handling nulls, duplicates, and incorrect values
+### **Key Requirements**
 
-🔹 Approach
+* Upload and read the dataset in Databricks
+* Explore the dataset structure and contents
+* Clean the data by handling:
 
-Navigated the Databricks workspace
-Created and attached a cluster
-Uploaded the CSV file to DBFS
-Loaded the dataset using PySpark DataFrame
-Explored the data using basic functions
-Applied data cleaning techniques
-Verified the cleaned output
+  * Null values
+  * Duplicate records
+  * Incorrect or inconsistent values
 
-🔹 Databricks Concepts Learned
+---
 
-Workspace → Organizing notebooks and files
-Clusters → Compute environment to run code
-Notebooks → Writing and executing PySpark code
-DBFS (Databricks File System) → Storage for files
-DataFrame Display → Viewing data interactively
+## **🔹 Architecture / Approach**
 
-🔹 Data Cleaning Techniques Used
+1. **Environment Setup**
 
-dropna() → Removed rows with null values
-fillna() → Replaced missing values
-dropDuplicates() → Removed duplicate records
-withColumn() → Modified or cleaned columns
-cast() → Converted data types
-filter() → Removed invalid data
+   * Navigated the Databricks workspace
+   * Created and attached a compute cluster
 
-🔹 Output / Results
+2. **Data Ingestion**
 
-Cleaned dataset with no null values
-Removed duplicate records
-Corrected data types
-Improved data quality for further processing
+   * Uploaded CSV file to **DBFS (Databricks File System)**
+   * Loaded data into a PySpark DataFrame
 
-🔹 Data Engineering Considerations
+3. **Data Exploration**
 
-Ensured schema correctness using inferSchema
-Handled missing values to avoid incorrect results
-Verified cleaned data using .show() and .describe()
-Maintained data consistency
+   * Inspected schema and structure
+   * Used `.show()`, `.describe()` for initial analysis
 
-🔹 Challenges Faced
+4. **Data Cleaning**
 
-Understanding Databricks interface initially
-Handling null values properly
-Fixing incorrect data types
-Identifying duplicate records
+   * Removed null values
+   * Replaced missing values where applicable
+   * Eliminated duplicate records
+   * Corrected data types
+   * Filtered invalid data
 
-🔹 Learnings
+5. **Validation**
 
-Basics of Databricks platform
-How to work with PySpark DataFrames
-Importance of data cleaning
-Handling real-world dirty data
-Understanding schema inference
+   * Verified cleaned dataset through sampling and summary statistics
+
+---
+
+## **🔹 Databricks Concepts Covered**
+
+| Concept               | Description                              |
+| --------------------- | ---------------------------------------- |
+| **Workspace**         | Organizing notebooks and project files   |
+| **Clusters**          | Compute resources to execute workloads   |
+| **Notebooks**         | Interactive environment for PySpark code |
+| **DBFS**              | Distributed storage for datasets         |
+| **DataFrame Display** | Interactive visualization of data        |
+
+---
+
+## **🔹 Data Cleaning Techniques**
+
+| Function           | Purpose                      |
+| ------------------ | ---------------------------- |
+| `dropna()`         | Remove rows with null values |
+| `fillna()`         | Replace missing values       |
+| `dropDuplicates()` | Remove duplicate records     |
+| `withColumn()`     | Modify or create columns     |
+| `cast()`           | Convert data types           |
+| `filter()`         | Remove invalid records       |
+
+---
+
+## **🔹 Outputs / Deliverables**
+
+* Cleaned dataset with null values handled
+* Duplicate records removed
+* Corrected and standardized data types
+* Improved data quality for downstream processing
+
+---
+
+## **🔹 Data Engineering Best Practices Applied**
+
+* Ensured **schema correctness** using `inferSchema`
+* Handled **missing values** to avoid inaccurate analytics
+* Verified results using `.show()` and `.describe()`
+* Maintained **data consistency and integrity**
+
+---
+
+## **🔹 Challenges & Resolutions**
+
+| Challenge                          | Resolution                                           |
+| ---------------------------------- | ---------------------------------------------------- |
+| Understanding Databricks interface | Explored workspace, clusters, and notebooks hands-on |
+| Handling null values               | Applied `dropna()` and `fillna()` appropriately      |
+| Fixing incorrect data types        | Used `cast()` for schema correction                  |
+| Identifying duplicate records      | Used `dropDuplicates()` for cleanup                  |
+
+---
+
+## **🔹 Key Learnings**
+
+* Fundamentals of the **Databricks platform**
+* Working with **PySpark DataFrames**
+* Importance of **data cleaning in pipelines**
+* Handling **real-world dirty datasets**
+* Understanding **schema inference and validation**
+
+---
+
+## **🔹 Pipeline Flow**
+
+```id="p1flow"
+Data Ingestion → Data Exploration → Data Cleaning → Data Validation
+```
+
+---
+
+## **🔹 Tech Stack**
+
+* **Platform:** Databricks
+* **Language:** PySpark
+* **Data Format:** CSV
+* **Concepts:** Data Cleaning, Schema Inference, Data Validation

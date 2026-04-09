@@ -159,3 +159,10 @@ Data Ingestion → Data Validation → Data Transformation → Analytics → Rep
 ```
 
 ---
+
+## **🔹 Tech Stack**
+
+* **Platform:** Databricks
+* **Language:** PySpark
+* **Data Format:** CSV
+* **Concepts:** ETL, Data Modeling, Window Functions, Aggregations

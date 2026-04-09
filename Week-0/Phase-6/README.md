@@ -162,3 +162,10 @@ Data Ingestion → Data Cleaning → Data Validation → Data Transformation →
 ```
 
 ---
+
+## **🔹 Tech Stack**
+
+* **Platform:** Apache Spark / Databricks
+* **Language:** PySpark
+* **Data Format:** CSV
+* **Concepts:** ETL, Data Cleaning, Data Validation, Window Functions, Aggregations
