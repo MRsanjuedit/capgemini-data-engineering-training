@@ -1,0 +1,26 @@
+
+1. What challenges did you face in setup?
+Understanding how different tables are connected
+Finding correct file paths in Databricks
+Missing columns like product category
+ I solved it by checking schema and file paths.
+
+✅ 2. How did you validate joins?
+
+Checked data using .show()
+Compared row counts before and after join
+Made sure key columns (like order_id) matched properly
+
+✅ 3. How did window functions help?
+
+Helped to rank customers and products
+Helped to calculate running totals
+Did calculations without losing original data
+
+✅ 4. Can you explain your pipeline?
+
+Loaded data
+Joined all tables → created fact_orders
+Calculated metrics (sales, spend)
+Used window functions for analysis
+Created final report
