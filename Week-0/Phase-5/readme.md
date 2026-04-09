@@ -1,101 +1,161 @@
-# Phase 5 – Databricks + Olist (End-to-End Pipeline)
+# **Phase 5 – Databricks + Olist (End-to-End Data Pipeline)**
 
-🔹 **Objective**
-In this phase, the goal is to work with a real-world dataset using Databricks and PySpark.
-This includes data ingestion, validation, building a fact table, applying advanced analytics using window functions, and generating a final reporting dataset.
+## **🔹 Objective**
 
----
-
-🔹 **Problem Summary**
-We were given the Olist e-commerce dataset consisting of multiple tables such as orders, customers, order_items, payments, and products.
-
-The task was to:
-• Upload and manage data in Databricks
-• Combine multiple datasets
-• Perform aggregations and analytics
-• Apply window functions
-• Generate business insights and final reports
+Design and implement an end-to-end data pipeline using **Databricks and PySpark** on a real-world e-commerce dataset (Olist).
+The pipeline covers data ingestion, validation, transformation, advanced analytics, and reporting.
 
 ---
 
-🔹 **Approach**
+## **🔹 Problem Statement**
 
-1. Set up Databricks environment (cluster + notebook)
-2. Uploaded all dataset files into the catalog named filestore and schema named olist.
-3. Loaded CSV files into PySpark DataFrames
-4. Validated data using schema checks and sample queries
-5. Created a unified dataset (`fact_orders`) using joins
-6. Performed transformations and aggregations
-7. Applied window functions for advanced analysis
-8. Built final reporting dataset
+The Olist dataset consists of multiple relational tables, including:
 
----
+* `orders`
+* `customers`
+* `order_items`
+* `payments`
+* `products`
 
-🔹 **Key Transformations Used**
+### **Key Requirements**
 
-• `join()` → to combine multiple tables
-• `groupBy()` → for aggregations
-• `agg()` → to calculate metrics (sum, count)
-• `withColumn()` → to create new columns
-• `when()` → for segmentation logic
-• `window functions` → for ranking and running totals
+* Ingest and manage raw data in Databricks
+* Integrate multiple datasets into a unified model
+* Perform aggregations and analytical transformations
+* Apply window functions for advanced insights
+* Generate business-ready reporting datasets
 
 ---
 
-🔹 **Analytical Tasks Performed**
+## **🔹 Architecture / Approach**
 
-• Top 3 customers per city using ranking
-• Running total of daily sales
-• Top products per category using DENSE_RANK
-• Customer Lifetime Value calculation
-• Customer segmentation (Gold, Silver, Bronze)
-• Final reporting table creation
+1. **Environment Setup**
 
----
+   * Configured Databricks cluster
+   * Created notebooks for modular pipeline execution
 
-🔹 **Output / Results**
+2. **Data Ingestion**
 
-The following outputs were generated:
-• Customer-level spend and segmentation
-• Product-level sales insights
-• Daily and cumulative sales trends
-• Final combined reporting dataset
+   * Uploaded CSV datasets to `FileStore`
+   * Organized under schema: `olist`
+   * Loaded data into PySpark DataFrames
 
----
+3. **Data Validation**
 
-🔹 **Data Engineering Considerations**
+   * Schema validation
+   * Null checks and data consistency verification
+   * Sample data inspection
 
-• Ensured correct join conditions between tables
-• Avoided duplicate records during joins
-• Validated data using row counts and sample checks
-• Used proper data types for accurate calculations
+4. **Data Modeling**
 
----
+   * Designed and built a centralized **fact table (`fact_orders`)**
+   * Integrated multiple dimension tables via joins
 
-🔹 **Challenges Faced**
+5. **Transformation Layer**
 
-• Understanding relationships between multiple tables
-• Handling missing columns like product category
-• Managing file paths in Databricks
-• Writing correct window functions
+   * Applied business logic and feature engineering
+   * Performed aggregations and derived metrics
 
----
+6. **Analytics Layer**
 
-🔹 **Learnings**
+   * Implemented window functions for advanced insights
+   * Generated customer and product-level analytics
 
-• How to work with real-world datasets
-• Importance of fact table (`fact_orders`)
-• Use of window functions in analytics
-• Building an end-to-end data pipeline
-• Applying business logic through segmentation
+7. **Reporting Layer**
+
+   * Created final curated datasets for reporting and visualization
 
 ---
 
-🔹 **Pipeline Overview**
+## **🔹 Key Transformations**
 
-1. Data Ingestion → Load CSV files
-2. Data Validation → Check schema and data quality
-3. Data Transformation → Join tables and create fact table
-4. Analytics → Apply aggregations and window functions
-5. Reporting → Generate final dataset
+| Transformation   | Purpose                               |
+| ---------------- | ------------------------------------- |
+| `join()`         | Combine multiple datasets             |
+| `groupBy()`      | Aggregate data                        |
+| `agg()`          | Compute metrics (SUM, COUNT, etc.)    |
+| `withColumn()`   | Create derived columns                |
+| `when()`         | Apply conditional logic               |
+| Window Functions | Ranking, running totals, segmentation |
 
+---
+
+## **🔹 Analytical Use Cases**
+
+* **Top Customers per City**
+
+  * Identified using ranking functions
+
+* **Daily & Cumulative Sales**
+
+  * Running totals using window functions
+
+* **Top Products by Category**
+
+  * Applied `DENSE_RANK()` for ranking
+
+* **Customer Lifetime Value (CLV)**
+
+  * Total spend per customer
+
+* **Customer Segmentation**
+
+  * Categorized into:
+
+    * Gold
+    * Silver
+    * Bronze
+
+* **Final Reporting Dataset**
+
+  * Consolidated business insights into a single dataset
+
+---
+
+## **🔹 Outputs / Deliverables**
+
+* Customer-level spend and segmentation dataset
+* Product-level sales performance insights
+* Daily and cumulative sales trends
+* Final aggregated reporting table
+
+---
+
+## **🔹 Data Engineering Best Practices Applied**
+
+* Ensured **accurate join conditions** across tables
+* Prevented **duplicate records** during joins
+* Performed **data validation checks** (row counts, sampling)
+* Used appropriate **data types for calculations**
+* Maintained **modular and scalable pipeline design**
+
+---
+
+## **🔹 Challenges & Resolutions**
+
+| Challenge                                   | Resolution                                    |
+| ------------------------------------------- | --------------------------------------------- |
+| Complex table relationships                 | Analyzed schema and defined correct join keys |
+| Missing attributes (e.g., product category) | Applied fallback logic / handled nulls        |
+| File path handling in Databricks            | Standardized FileStore paths                  |
+| Writing window functions                    | Iterative testing with small datasets         |
+
+---
+
+## **🔹 Key Learnings**
+
+* Hands-on experience with **real-world data pipelines**
+* Importance of **fact table design** in analytics
+* Practical usage of **window functions**
+* End-to-end workflow in **Databricks + PySpark**
+* Translating **business requirements into data transformations**
+
+---
+
+## **🔹 Pipeline Flow**
+
+```
+Data Ingestion → Data Validation → Data Transformation → Analytics → Reporting
+```
+
+---
